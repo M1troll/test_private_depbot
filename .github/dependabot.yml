@@ -13,7 +13,7 @@ updates:
     directory: "/"
     schedule:
       interval: daily
-      time: "02:25"
+      time: "02:33"
     commit-message:
       prefix: "[automated-commit] "
     labels:
@@ -28,7 +28,7 @@ updates:
     registries: "*"
     schedule:
       interval: daily
-      time: "02:25"
+      time: "02:33"
     commit-message:
       prefix: "[automated-commit] "
     labels:
