@@ -1,0 +1,40 @@
+# https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
+
+version: 2
+
+registries:
+  cms_sdk_registry:
+    type: git
+    url: https://github.com/M1troll/private_repo
+    token: ${{secrets.CMS_SDK_TOKEN}}
+
+updates:
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: monthly
+      time: "00:00"
+    commit-message:
+      prefix: "[automated-commit] "
+    labels:
+      - "automated-pr"
+    groups:
+      github-actions:
+        patterns:
+        - "*"
+
+  - package-ecosystem: pip
+    directory: "/"
+    registries: "*"
+    schedule:
+      interval: weekly
+      day: "friday"
+      time: "00:00"
+    commit-message:
+      prefix: "[automated-commit] "
+    labels:
+      - "automated-pr"
+    groups:
+      pip:
+        patterns:
+        - "*"
