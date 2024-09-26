@@ -6,7 +6,8 @@ registries:
   cms_sdk_registry:
     type: maven-repository
     url: https://github.com/M1troll/private_repo
-    token: ${{secrets.CMS_SDK_TOKEN}}
+    username: M1troll
+    password: ${{secrets.CMS_SDK_TOKEN}}
 
 updates:
   - package-ecosystem: github-actions
