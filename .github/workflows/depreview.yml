@@ -1,5 +1,16 @@
 name: 'Dependency Review'
 on: [pull_request]
+  workflow_dispatch:
+    inputs:
+      browser:
+        type: choice
+        description: Browser in which the tests will be run
+        required: true
+        options:
+          - all
+          - chrome
+          - firefox
+          - edge
 
 permissions:
   contents: read
