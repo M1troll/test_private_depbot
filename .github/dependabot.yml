@@ -4,7 +4,7 @@ version: 2
 
 registries:
   cms_sdk_registry:
-    type: git
+    type: maven-repository
     url: https://github.com/M1troll/private_repo
     token: ${{secrets.CMS_SDK_TOKEN}}
 
