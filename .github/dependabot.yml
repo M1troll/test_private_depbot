@@ -5,7 +5,7 @@ version: 2
 registries:
   cms_sdk_registry:
     type: maven-repository
-    url: https://github.com/M1troll/private_repo
+    url: https://github.com/M1troll/package
     username: M1troll
     password: ${{secrets.USER_PAT}}
 
@@ -15,7 +15,7 @@ updates:
     registries: "*"
     schedule:
       interval: daily
-      time: "08:42"
+      time: "08:53"
     commit-message:
       prefix: "[automated-commit] "
     labels:
@@ -29,7 +29,7 @@ updates:
     directory: "/"
     schedule:
       interval: daily
-      time: "08:42"
+      time: "08:53"
     commit-message:
       prefix: "[automated-commit] "
     labels:

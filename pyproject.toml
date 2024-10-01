@@ -6,4 +6,4 @@ python = "^3.12"
 pytest = "^8.2.2"
 pomcorn = "^0.7.4"
 
-private_repo = { git = "ssh://git@github.com/M1troll/private_repo.git", rev = "develop" }
+private_repo = { git = "ssh://git@github.com/M1troll/package.git", rev = "develop" }
