@@ -2,12 +2,13 @@
 
 version: 2
 
-# registries:
-#   cms_sdk_registry:
-#     type: maven-repository
-#     url: https://github.com/M1troll/private_repo
-#     username: M1troll
-#     password: ${{secrets.SSH_PRIVATE_KEY}}
+registries:
+  cms_sdk_registry:
+    type: maven-repository
+    url: https://github.com/M1troll/private_repo
+    username: M1troll
+    password: ${{secrets.USER_PAT}}
+
 
 updates:
   - package-ecosystem: github-actions
