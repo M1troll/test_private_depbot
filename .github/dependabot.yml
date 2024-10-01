@@ -9,33 +9,32 @@ registries:
     username: M1troll
     password: ${{secrets.USER_PAT}}
 
-
 updates:
-  - package-ecosystem: github-actions
-    directory: "/"
-    schedule:
-      interval: daily
-      time: "08:31"
-    commit-message:
-      prefix: "[automated-commit] "
-    labels:
-      - "automated-pr"
-    groups:
-      github-actions:
-        patterns:
-        - "*"
-
   - package-ecosystem: pip
     directory: "/"
     registries: "*"
     schedule:
       interval: daily
-      time: "08:31"
+      time: "08:42"
     commit-message:
       prefix: "[automated-commit] "
     labels:
       - "automated-pr"
     groups:
       pip:
+        patterns:
+        - "*"
+
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: daily
+      time: "08:42"
+    commit-message:
+      prefix: "[automated-commit] "
+    labels:
+      - "automated-pr"
+    groups:
+      github-actions:
         patterns:
         - "*"
