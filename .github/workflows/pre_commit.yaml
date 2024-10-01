@@ -39,7 +39,7 @@ jobs:
     - name: Set SSH Key for CMS SDK
       # Don't upgrade to 0.8.0 until issue is fixed, because since this version a host error raises
       # in actions on GitHub: https://github.com/webfactory/ssh-agent/issues/177
-      uses: webfactory/ssh-agent@v0.7.0
+      uses: webfactory/ssh-agent@v0.9.0
       with:
         ssh-private-key: |
           ${{ secrets.SSH_PRIVATE_KEY }}
