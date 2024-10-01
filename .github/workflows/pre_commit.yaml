@@ -1,0 +1,48 @@
+name: pre-commit
+on:
+  pull_request:
+  push:
+    branches: [ develop ]
+
+jobs:
+  pre-commit:
+    timeout-minutes: 10
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Set up Python
+      id: install-python
+      uses: actions/setup-python@v5
+      with:
+        # Temporary pin python version to workaround the issue
+        # https://github.com/actions/setup-python/issues/886
+        python-version: 3.12.3
+
+    - name: Install Poetry
+      uses: snok/install-poetry@v1.4.1
+      with:
+        version: latest
+        virtualenvs-create: true
+        virtualenvs-in-project: true
+        installer-parallel: true
+
+    - name: Cache poetry dependencies
+      id: cached-poetry-dependencies
+      uses: actions/cache@v4
+      with:
+        path: .venv
+        key: ${{ runner.os }}-${{ steps.install-python.outputs.python-version}}-poetry-${{ hashFiles('**/poetry.lock') }}
+
+    # Configure SSH Agent to download SDK from private repository
+    - name: Set SSH Key for CMS SDK
+      # Don't upgrade to 0.8.0 until issue is fixed, because since this version a host error raises
+      # in actions on GitHub: https://github.com/webfactory/ssh-agent/issues/177
+      uses: webfactory/ssh-agent@v0.7.0
+      with:
+        ssh-private-key: |
+          ${{ secrets.SSH_PRIVATE_KEY }}
+
+    - name: Run smth
+      run: echo "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"

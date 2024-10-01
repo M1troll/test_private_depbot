@@ -7,14 +7,14 @@ registries:
     type: maven-repository
     url: https://github.com/M1troll/private_repo
     username: M1troll
-    password: ${{secrets.CMS_SDK_TOKEN}}
+    password: ${{secrets.SSH_PRIVATE_KEY}}
 
 updates:
   - package-ecosystem: github-actions
     directory: "/"
     schedule:
       interval: daily
-      time: "08:00"
+      time: "06:50"
     commit-message:
       prefix: "[automated-commit] "
     labels:
