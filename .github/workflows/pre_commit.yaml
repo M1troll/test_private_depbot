@@ -5,6 +5,7 @@ on:
     branches: [ develop ]
 
 jobs:
+  runs-on: ubuntu/latest
   pre-commit:
     timeout-minutes: 10
     steps:
